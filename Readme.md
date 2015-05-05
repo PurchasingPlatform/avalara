@@ -1,8 +1,11 @@
+# Purchasing Platform
+
+sosedoff originally wrote this gem. We have forked into our organization and
+then cherry-pick'd the updated readme before making changes of our own.
+
 # Avalara gem
 
 This API provides access to the [Avalara](http://www.avalara.com/) AvaTax API.
-
-[![Build Status](https://travis-ci.org/adamfortuna/avalara.png)](https://travis-ci.org/adamfortuna/avalara)
 
 ## Setup
 
@@ -63,7 +66,7 @@ result.tax_details
 ### Get Tax
 
 ```
-line = Avalara::Request::Line.new({  
+line = Avalara::Request::Line.new({
   line_no: "1",
   destination_code: "1",
   origin_code: "1",
@@ -86,7 +89,7 @@ invoice = Avalara::Request::Invoice.new({
 })
 
 # You'll get back a Response::Invoice object
-result = Avalara.get_tax(invoice) 
+result = Avalara.get_tax(invoice)
 
 result.result_code
 result.total_amount
