@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'factory_girl'
-  s.add_development_dependency 'ruby-debug19'
+  # s.add_development_dependency 'ruby-debug19'
   s.add_development_dependency 'rake'
 end

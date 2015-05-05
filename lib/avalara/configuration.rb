@@ -12,12 +12,12 @@ class Avalara::Configuration
   # set, the endpoint will default to the official production endpoint at
   # 'https://rest.avalara.net'.
   #
-  # If you want to set this to the test endpoint, use 'https://development.avalara.net' 
+  # If you want to set this to the test endpoint, use 'https://development.avalara.net'
   #
   # Returns the String for the API endpoint.
   #
   def endpoint
-    @endpoint ||= 'https://rest.avalara.net'
+    @endpoint ||= 'development.avalara.net:443'
   end
 
   ##

@@ -10,9 +10,10 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
   require(file)
 end
 
+FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+FactoryGirl.find_definitions
+
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-  
   config.mock_with :rspec
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
