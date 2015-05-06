@@ -1,14 +1,14 @@
 # encoding: UTF-8
 
-require 'avalara/version'
-require 'avalara/errors'
-require 'avalara/configuration'
+require "avalara/version"
+require "avalara/errors"
+require "avalara/configuration"
 
-require 'avalara/api'
+require "avalara/api"
 
-require 'avalara/types'
-require 'avalara/request'
-require 'avalara/response'
+require "avalara/types"
+require "avalara/request"
+require "avalara/response"
 
 module Avalara
 
@@ -19,7 +19,7 @@ module Avalara
   end
 
   def self.configuration=(configuration)
-    raise ArgumentError, 'Expected a Avalara::Configuration instance' unless configuration.kind_of?(Configuration)
+    raise ArgumentError, "Expected a Avalara::Configuration instance" unless configuration.kind_of?(Configuration)
     @@_configuration = configuration
   end
 
@@ -65,7 +65,7 @@ module Avalara
     ].join("/")
 
     response = API.get(uri,
-      :headers    => API.headers_for('0'),
+      :headers    => API.headers_for("0"),
       :query      => {:saleamount => sales_amount},
       :basic_auth => authentication
     )
@@ -77,7 +77,7 @@ module Avalara
   end
 
   def self.get_tax(invoice)
-    uri = [endpoint, version, 'tax', 'get'].join('/')
+    uri = [endpoint, version, "tax", "get"].join("/")
 
     response = API.post(uri,
       :body => invoice.to_json,

@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require 'multi_json'
+require "multi_json"
 
 module Avalara
   module Request

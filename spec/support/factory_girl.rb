@@ -7,7 +7,7 @@ RSpec.configure do |config|
   # end
 end
 
-# Dir[File.expand_path('../../factories', __FILE__) + '/*.rb'].each do |factory|
+# Dir[File.expand_path("../../factories", __FILE__) + "/*.rb"].each do |factory|
 #   require factory
 # end
 

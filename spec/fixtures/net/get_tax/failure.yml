@@ -34,7 +34,7 @@ http_interactions:
       User-Agent:
       - avalara/0.0.1 (Rubygems; Ruby 1.9.2 x86_64-darwin11.0.0)
       Content-Length:
-      - '374'
+      - "374"
   response:
     status:
       code: 500
@@ -51,7 +51,7 @@ http_interactions:
       Date:
       - Mon, 07 May 2012 14:23:38 GMT
       Content-Length:
-      - '215'
+      - "215"
       Set-Cookie:
       - TS6198e2=51ee5364a431e5e0170ea5df6a8ee620ecacae9b42d217834fa7daea; Path=/
       - TS6198e2_28=84ef6c201f5e761394125574ad159baeecacae9b42d217830000000000000000004fa7daea5e7e541d5a1551b0;
@@ -70,6 +70,6 @@ http_interactions:
         "Source": "Avalara.AvaTax.Services"}
         ]
         }
-    http_version: '1.1'
+    http_version: "1.1"
   recorded_at: Tue, 05 May 2015 20:45:24 GMT
 recorded_with: VCR 2.9.3

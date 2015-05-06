@@ -19,7 +19,7 @@ module Avalara
       property :messages,             :from => :Messages
 
       def success?
-        result_code == 'Success'
+        result_code == "Success"
       end
       
       def Messages=(new_messages)

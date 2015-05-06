@@ -1,16 +1,16 @@
 # encoding: UTF-8
-require 'httparty'
-require 'avalara/parser'
+require "httparty"
+require "avalara/parser"
 
 module Avalara
   class API
     include HTTParty
-    headers 'Accept' => 'application/json', 'Content-Type' => 'text/json'
+    headers "Accept" => "application/json", "Content-Type" => "text/json"
     format :json
     parser Parser
 
     def self.headers_for(length)
-      { 'Date' => Time.now.httpdate(), 'User-Agent' => user_agent_string,  "Content-Length" => length.to_s }
+      { "Date" => Time.now.httpdate(), "User-Agent" => user_agent_string,  "Content-Length" => length.to_s }
     end
     
     private 
