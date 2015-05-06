@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :line, :class => Avalara::Request::Line do
+  factory :line, class: Avalara::Request::Line do
     line_no "1"
     destination_code "1"
     origin_code "1"

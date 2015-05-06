@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :invoice, :class => Avalara::Request::Invoice do
+  factory :invoice, class: Avalara::Request::Invoice do
     customer_code 1
     doc_date Time.now
     company_code 83

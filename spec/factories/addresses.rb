@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :address, :class => Avalara::Request::Address do
+  factory :address, class: Avalara::Request::Address do
     address_code 1
     line_1 "435 Ericksen Avenue Northeast"
     line_2 "#250"
