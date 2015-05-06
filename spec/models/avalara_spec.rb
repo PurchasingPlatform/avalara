@@ -112,7 +112,7 @@ describe Avalara do
           begin
             request
           rescue Avalara::ApiError => e
-            e.message.messages.first
+            e.object.messages.first
           end
         end
 
@@ -140,7 +140,7 @@ describe Avalara do
       it { expect(subject.doc_date).to eq "2012-01-01" }
       it { expect(subject.result_code).to eq "Success" }
       it { expect(subject.tax_date).to_not be_nil }
-      it { expect(subject.timestamp).to be_nil }
+      it { expect(subject.timestamp).to_not be_nil }
       it { expect(subject.total_amount).to eq "10" }
       it { expect(subject.total_discount).to eq "0" }
       it { expect(subject.total_exemption).to eq "10" }
@@ -186,19 +186,6 @@ describe Avalara do
           it { expect(subject.tax_name).to eq "WA STATE TAX" }
         end
       end
-    end
-  end
-
-  describe ".geographical_tax" do
-    let(:latitude) { "47.627935" }
-    let(:longitude) { "-122.51702" }
-    let(:sales_amount) { 100 }
-
-    subject { Avalara.geographical_tax(latitude, longitude, sales_amount) }
-    use_vcr_cassette "geographical_tax_no_sales"
-
-    it "returns a rate of 0" do
-      expect { subject }.to raise_error(Avalara::NotImplementedError)
     end
   end
 end

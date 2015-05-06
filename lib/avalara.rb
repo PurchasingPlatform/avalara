@@ -86,14 +86,14 @@ module Avalara
     )
 
     return case response.code
-      when 200..299
-        Response::Invoice.new(response)
-      when 400..599
-        raise ApiError.new(Response::Invoice.new(response))
-      else
-        raise ApiError.new(response)
+    when 200..299
+      Response::Invoice.new(response)
+    when 400..599
+      raise ApiError.new(Response::Invoice.new(response))
+    else
+      raise ApiError.new(response)
     end
-  rescue Timeout:Error: e
+  rescue Timeout::Error => e
     raise TimeoutError.new(e)
   rescue ApiError => e
     raise e
