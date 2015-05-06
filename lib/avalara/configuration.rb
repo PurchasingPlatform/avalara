@@ -17,7 +17,7 @@ class Avalara::Configuration
   # Returns the String for the API endpoint.
   #
   def endpoint
-    @endpoint ||= 'development.avalara.net:443'
+    @endpoint ||= "https://rest.avalara.net"
   end
 
   ##
@@ -26,6 +26,6 @@ class Avalara::Configuration
   # Returns the String for the API version.
   #
   def version
-    @version ||= '1.0'
+    @version ||= "1.0"
   end
 end
