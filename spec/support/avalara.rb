@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require "pathname"
 
 path = Pathname.new(File.expand_path("../../avalara.yml", __FILE__))

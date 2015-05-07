@@ -1,9 +1,7 @@
-# encoding: UTF-8
-
 module Avalara
   module Request
     class Address < Avalara::Types::Stash
-      property :AddressCode, from: :address_code, required: true
+      property :AddressCode, from: :address_code#, required: true
       property :Line1,       from: :line_1
       property :Line2,       from: :line_2
       property :Line3,       from: :line_3

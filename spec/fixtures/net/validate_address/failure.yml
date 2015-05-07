@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://brad%40purchasingplatform.com:%{API_PASSWORD}@rest.avalara.net//1.0/address/validate?City=Chicago&Country=USA&Line1=549%20W%20Randolph%20St&Line2=Suite%20605&Line3=office&PostalCode=93286&Region=IL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - text/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 07 May 2015 16:35:37 GMT
+      Content-Length:
+      - '294'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+        "ResultCode": "Success",
+        "Address": {
+        "Line1": "office",
+        "Line2": "549 W Randolph St Ste 605",
+        "City": "Chicago",
+        "Region": "IL",
+        "PostalCode": "60661-2316",
+        "Country": "US",
+        "County": "Cook",
+        "FipsCode": "1703100000",
+        "CarrierRoute": "C047",
+        "PostNet": "606612316559",
+        "AddressType": "H"}
+        }
+    http_version: 
+  recorded_at: Thu, 07 May 2015 16:35:38 GMT
+recorded_with: VCR 2.9.3

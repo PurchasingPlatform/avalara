@@ -5,16 +5,21 @@ describe Avalara do
 
   let(:configuration) { Avalara::API.configuration }
 
-  describe ".get_tax", vcr: true do
+  describe ".validate_address", vcr: true do
     let(:doc_date) { Date.parse("January 1, 2012") }
-    let(:invoice) { FactoryGirl.build_via_new(:invoice, doc_date: doc_date) }
-    let(:request) { Avalara.get_tax(invoice) }
+    let(:address) { FactoryGirl.build_via_new(:address) }
+    let(:request) { Avalara.validate_address(address) }
     subject { request }
 
-    context "failure", vcr: { :cassette_name => "get_tax/failure" } do
-      let(:invoice) { FactoryGirl.build_via_new(:invoice, customer_code: nil) }
+    VCR.use_cassette("validate_address/good") do
+      address = FactoryGirl.build_via_new(:valid_address)
+      Avalara.validate_address(address)
+    end
 
-      it "rasises an error" do
+    context "failure", vcr: { :cassette_name => "get_tax/failure" } do
+      let(:address) { FactoryGirl.build_via_new(:address) }
+
+      it "raises an error" do
         expect { subject }.to raise_error(Avalara::ApiError)
       end
 

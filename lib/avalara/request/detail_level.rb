@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module Avalara
   module Request
     class DetailLevel < Avalara::Types::Stash

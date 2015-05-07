@@ -1,15 +1,6 @@
-# encoding: UTF-8
-
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-  # config.before(:each) do
-  #   FactoryGirl.lint
-  # end
 end
-
-# Dir[File.expand_path("../../factories", __FILE__) + "/*.rb"].each do |factory|
-#   require factory
-# end
 
 def FactoryGirl.build_via_new(name, attributes = {})
   attributes = FactoryGirl.attributes_for(name).merge(attributes)

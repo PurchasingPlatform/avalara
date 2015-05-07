@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module Avalara
   module Response
     class Invoice < Avalara::Types::Stash

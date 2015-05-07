@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 # To be removed when Crack is updated, see below.
 require "multi_json"
 require "httparty"

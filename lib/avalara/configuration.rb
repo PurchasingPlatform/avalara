@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 class Avalara::Configuration
 
   attr_writer :endpoint
@@ -17,7 +15,7 @@ class Avalara::Configuration
   # Returns the String for the API endpoint.
   #
   def endpoint
-    @endpoint ||= "https://rest.avalara.net"
+    @endpoint ||= "http://rest.avalara.net"
   end
 
   ##

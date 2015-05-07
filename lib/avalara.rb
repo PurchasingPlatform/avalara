@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require "avalara/version"
 require "avalara/errors"
 require "avalara/configuration"
@@ -67,7 +65,33 @@ module Avalara
   end
 
   def self.validate_address(address_hash)
+    uri = [
+      config.endpoint,
+      config.version,
+      "address",
+      "validate"
+    ].join("/")
 
+    response = API.get(uri,
+      query: address_hash.to_h,
+      basic_auth: authentication
+    )
+
+    return case response.code
+    when 200..299
+      binding.pry
+      response
+    when 400..599
+      raise ApiError.new(response)
+    else
+      raise ApiError.new(response)
+    end
+  rescue Timeout::Error => e
+    raise TimeoutError.new(e)
+  rescue ApiError => e
+    raise e
+  rescue Exception => e
+    raise Error.new(e)
   end
 
   private
