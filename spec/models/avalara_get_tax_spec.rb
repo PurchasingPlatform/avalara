@@ -44,8 +44,7 @@ describe Avalara do
       end
     end
 
-    context "success", vcr: { :cassette_name => "get_tax/success" } do
-
+  context "success", vcr: { :cassette_name => "get_tax/success" } do
       it { is_expected.to be_kind_of Avalara::Response::Invoice }
 
       it { expect(subject.doc_code).to_not be_nil }
