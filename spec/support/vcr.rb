@@ -7,8 +7,5 @@ VCR.configure do |config|
   config.filter_sensitive_data("%{API_USERNAME}") { AVALARA_CONFIGURATION["username"] }
   config.filter_sensitive_data("%{API_PASSWORD}") { AVALARA_CONFIGURATION["password"] }
   config.filter_sensitive_data("%{API_ENDPOINT}") { AVALARA_CONFIGURATION["endpoint"] }
-end
-
-RSpec.configure do |config|
-  config.extend(VCR::RSpec::Macros)
+  config.configure_rspec_metadata!
 end

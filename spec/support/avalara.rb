@@ -7,7 +7,7 @@ path = Pathname.new(File.expand_path("../../avalara.yml", __FILE__))
 if path.exist?
   begin
     AVALARA_CONFIGURATION = YAML.load_file(path)
-    Avalara.configure do |config|
+    Avalara::API.configure do |config|
       config.username = AVALARA_CONFIGURATION["username"] || abort("Avalara configuration file (#{path}) is missing the username value.")
       config.password = AVALARA_CONFIGURATION["password"] || abort("Avalara configuration file (#{path}) is missing the password value.")
       config.version = AVALARA_CONFIGURATION["version"] if AVALARA_CONFIGURATION.has_key?("version")
@@ -23,12 +23,12 @@ end
 module ConfigurationSpecHelpers
   def maintain_contactology_configuration
     before(:each) do
-      @_isolated_configuration = Avalara.configuration
-      Avalara.configuration = @_isolated_configuration.dup
+      @_isolated_configuration = Avalara::API.configuration
+      Avalara::API.configuration = @_isolated_configuration.dup
     end
 
     after(:each) do
-      Avalara.configuration = @_isolated_configuration
+      Avalara::API.configuration = @_isolated_configuration
     end
   end
 end

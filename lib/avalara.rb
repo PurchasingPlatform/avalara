@@ -11,54 +11,14 @@ require "avalara/request"
 require "avalara/response"
 
 module Avalara
-
-  def self.configuration
-    @@_configuration ||= Avalara::Configuration.new
-    yield @@_configuration if block_given?
-    @@_configuration
-  end
-
-  def self.configuration=(configuration)
-    raise ArgumentError, "Expected a Avalara::Configuration instance" unless configuration.kind_of?(Configuration)
-    @@_configuration = configuration
-  end
-
-  def self.configure(&block)
-    configuration(&block)
-  end
-
-  def self.endpoint
-    configuration.endpoint
-  end
-  def self.endpoint=(endpoint)
-    configuration.endpoint = endpoint
-  end
-
-  def self.username
-    configuration.username
-  end
-  def self.username=(username)
-    configuration.username = username
-  end
-
-  def self.password
-    configuration.password
-  end
-  def self.password=(password)
-    configuration.password = password
-  end
-
-  def self.version
-    configuration.version
-  end
-  def self.version=(version)
-    configuration.version = version
+  def self.config
+    Avalara::API.configuration
   end
 
   def self.geographical_tax(latitude, longitude, sales_amount)
     uri = [
-      configuration.endpoint,
-      configuration.version,
+      config.endpoint,
+      config.version,
       "tax",
       "#{latitude},#{longitude}",
       "get"
@@ -77,7 +37,12 @@ module Avalara
   end
 
   def self.get_tax(invoice)
-    uri = [endpoint, version, "tax", "get"].join("/")
+    uri = [
+      config.endpoint,
+      config.version,
+      "tax",
+      "get"
+    ].join("/")
 
     response = API.post(uri,
       body: invoice.to_json,
@@ -101,12 +66,16 @@ module Avalara
     raise Error.new(e)
   end
 
+  def self.validate_address(address_hash)
+
+  end
+
   private
 
   def self.authentication
     {
-      username: username,
-      password: password
+      username: config.username,
+      password: config.password
     }
   end
 end
