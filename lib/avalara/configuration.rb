@@ -15,7 +15,7 @@ class Avalara::Configuration
   # Returns the String for the API endpoint.
   #
   def endpoint
-    @endpoint ||= "http://rest.avalara.net"
+    @endpoint ||= "https://rest.avalara.net"
   end
 
   ##
