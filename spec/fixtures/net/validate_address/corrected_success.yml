@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://brad%40purchasingplatform.com:%{API_PASSWORD}@rest.avalara.net//1.0/address/validate?City=Chicago&Country=USA&Line1=549%20W%20Randolph%20St&Line2=Suite%20605&Line3=office&PostalCode=93286&Region=IL
+    uri: https://%{API_USERNAME}:%{API_PASSWORD}@rest.avalara.net/1.0/address/validate?City=Chicago&Country=USA&Line1=549%20W%20Randolph%20St&Line2=Suite%20605&Line3=office&PostalCode=93286&Region=IL
     body:
       encoding: US-ASCII
       string: ''
@@ -48,6 +48,6 @@ http_interactions:
         "PostNet": "606612316559",
         "AddressType": "H"}
         }
-    http_version: 
+    http_version:
   recorded_at: Thu, 07 May 2015 16:35:38 GMT
 recorded_with: VCR 2.9.3
