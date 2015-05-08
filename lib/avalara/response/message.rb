@@ -1,5 +1,3 @@
-
-
 module Avalara
   module Response
     class Message < Avalara::Types::Stash

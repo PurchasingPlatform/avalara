@@ -79,10 +79,9 @@ module Avalara
 
     return case response.code
     when 200..299
-      binding.pry
-      response
+      Response::AddressPayload.new(response)
     when 400..599
-      raise ApiError.new(response)
+      raise ApiError.new(Response::AddressPayload.new(response))
     else
       raise ApiError.new(response)
     end
