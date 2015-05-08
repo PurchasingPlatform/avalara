@@ -20,11 +20,8 @@ module Avalara
         end
       end
 
-      def Address=(lines)
-        self.address = []
-        lines.each do |line|
-          self.address << Address.new(line)
-        end
+      def Address=(line)
+        self.address = Address.new(line)
       end
     end
   end

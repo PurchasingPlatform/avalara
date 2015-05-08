@@ -1,6 +1,6 @@
 module Avalara
   module Response
-    class AddressPayload < Avalara::Types::Stash
+    class Address < Avalara::Types::Stash
       property :line_1,        from: :Line1
       property :line_2,        from: :Line2
       property :line_3,        from: :Line3

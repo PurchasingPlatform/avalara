@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://brad%40purchasingplatform.com:%{API_PASSWORD}@rest.avalara.net//1.0/address/validate?City=Chicago&Country=USA&Line1=123%20Example%20St&PostalCode=60661&Region=IL
+    uri: https://%{API_USERNAME}:%{API_PASSWORD}@rest.avalara.net/1.0/address/validate?City=Chicago&Country=USA&Line1=123%20Example%20St&PostalCode=60661&Region=IL
     body:
       encoding: US-ASCII
       string: ''
