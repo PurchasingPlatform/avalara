@@ -1,7 +1,7 @@
 # Purchasing Platform
 
 sosedoff originally wrote this gem. We have forked into our organization and
-then cherry-pick"d the updated readme before making changes of our own.
+then cherry-picked the updated readme before making changes of our own.
 
 # Avalara gem
 
@@ -15,7 +15,7 @@ Add the gem to your `Gemfile`.
 gem "avalara"
 ```
 
-Setup your Avalara credentials, either in a yml file, or as environment variables. If you want to add a yml file, it"ll just need `username` and `password`:
+Setup your Avalara credentials, either in a yml file, or as environment variables. If you want to add a yml file, it'll just need `username` and `password`:
 
 ```
 username: "testaccount"
@@ -28,7 +28,7 @@ You can also specify a different endpoint for development mode:
 https://development.avalara.net
 ```
 
-Setup the gem in an initializer (if using Rails), or wherever if you"re not. You can load in your username/password however you want, but here"s a sample way to do this:
+Setup the gem in an initializer (if using Rails), or wherever if you're not. You can load in your username/password however you want, but here's a sample way to do this:
 
 ```
 file = File.new(File.join(Rails.root, "config", "avalara.yml"))
@@ -88,7 +88,7 @@ invoice = Avalara::Request::Invoice.new({
   addresses: [address]
 })
 
-# You"ll get back a Response::Invoice object
+# You'll get back a Response::Invoice object
 result = Avalara.get_tax(invoice)
 
 result.result_code
