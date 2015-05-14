@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 class Avalara::Configuration
 
   attr_writer :endpoint
@@ -10,14 +8,14 @@ class Avalara::Configuration
   ##
   # Public: Get the API endpoint used by the configuration.  Unless explicitly
   # set, the endpoint will default to the official production endpoint at
-  # 'https://rest.avalara.net'.
+  # "https://rest.avalara.net".
   #
-  # If you want to set this to the test endpoint, use 'https://development.avalara.net' 
+  # If you want to set this to the test endpoint, use "https://development.avalara.net"
   #
   # Returns the String for the API endpoint.
   #
   def endpoint
-    @endpoint ||= 'https://rest.avalara.net'
+    @endpoint ||= "https://rest.avalara.net"
   end
 
   ##
@@ -26,6 +24,6 @@ class Avalara::Configuration
   # Returns the String for the API version.
   #
   def version
-    @version ||= '1.0'
+    @version ||= "1.0"
   end
 end

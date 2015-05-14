@@ -1,11 +1,9 @@
-# encoding: UTF-8
-
-Dir[File.expand_path('../../factories', __FILE__) + '/*.rb'].each do |factory|
-  require factory
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
 end
 
-def Factory.build_via_new(name, attributes = {})
-  attributes = Factory.attributes_for(name).merge(attributes)
+def FactoryGirl.build_via_new(name, attributes = {})
+  attributes = FactoryGirl.attributes_for(name).merge(attributes)
   klass = FactoryGirl.factory_by_name(name).build_class
   klass.new(attributes)
 end
@@ -16,5 +14,5 @@ end
 # attribute issues in Hashie objects.
 #
 def Factory(name, attributes = {})
-  Factory.build_via_new(name, attributes).save!
+  FactoryGirl.build_via_new(name, attributes).save!
 end

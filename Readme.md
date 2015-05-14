@@ -1,7 +1,7 @@
 # Purchasing Platform
 
 sosedoff originally wrote this gem. We have forked into our organization and
-then cherry-pick'd the updated readme before making changes of our own.
+then cherry-picked the updated readme before making changes of our own.
 
 # Avalara gem
 
@@ -12,14 +12,14 @@ This API provides access to the [Avalara](http://www.avalara.com/) AvaTax API.
 Add the gem to your `Gemfile`.
 
 ```
-gem 'avalara'
+gem "avalara"
 ```
 
 Setup your Avalara credentials, either in a yml file, or as environment variables. If you want to add a yml file, it'll just need `username` and `password`:
 
 ```
-username: 'testaccount'
-password: 'testkey'
+username: "testaccount"
+password: "testkey"
 ```
 
 You can also specify a different endpoint for development mode:
@@ -31,17 +31,17 @@ https://development.avalara.net
 Setup the gem in an initializer (if using Rails), or wherever if you're not. You can load in your username/password however you want, but here's a sample way to do this:
 
 ```
-file = File.new(File.join(Rails.root, 'config', 'avalara.yml'))
+file = File.new(File.join(Rails.root, "config", "avalara.yml"))
 
 if file.exist?
   begin
     AVALARA_CONFIGURATION = YAML.load_file(path)
-    Avalara.configure do |config|
-      config.username = AVALARA_CONFIGURATION['username'] || abort("Avalara configuration file (#{path}) is missing the username value.")
-      config.password = AVALARA_CONFIGURATION['password'] || abort("Avalara configuration file (#{path}) is missing the password value.")
-      config.version = AVALARA_CONFIGURATION['version'] if AVALARA_CONFIGURATION.has_key?('version')
-      config.endpoint = AVALARA_CONFIGURATION['endpoint'] if AVALARA_CONFIGURATION.has_key?('endpoint')
-    end'
+    Avalara:API.configure do |config|
+      config.username = AVALARA_CONFIGURATION["username"] || abort("Avalara configuration file (#{path}) is missing the username value.")
+      config.password = AVALARA_CONFIGURATION["password"] || abort("Avalara configuration file (#{path}) is missing the password value.")
+      config.version = AVALARA_CONFIGURATION["version"] if AVALARA_CONFIGURATION.has_key?("version")
+      config.endpoint = AVALARA_CONFIGURATION["endpoint"] if AVALARA_CONFIGURATION.has_key?("endpoint")
+    end"
   end
 else
   abort "Avalara configuration not found."
@@ -55,7 +55,7 @@ After that you should be able to use a few endpoints to Avalaras tax service. If
 ### Geographical Tax
 
 ```
-result = Avalara.geographical_tax('47.627935', '-122.51702', 100)
+result = Avalara.geographical_tax("47.627935", "-122.51702", 100)
 
 # Access the details of the result, which is a Avalara::Response::Tax object
 result.rate

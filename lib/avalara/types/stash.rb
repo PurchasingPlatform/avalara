@@ -1,12 +1,10 @@
-# encoding: UTF-8
-
-require 'hashie/trash'
-require 'hashie/extensions/coercion'
+require "hashie/trash"
+require "hashie/extensions/coercion"
 
 module Avalara
   module Types
     ##
-    # A Stash is a 'suppressing' Hashie::Trash where keys that are not defined
+    # A Stash is a "suppressing" Hashie::Trash where keys that are not defined
     # are simply ignored and unavailable to the local object.
     #
     # A Stash is useful when you need to read data from another application,

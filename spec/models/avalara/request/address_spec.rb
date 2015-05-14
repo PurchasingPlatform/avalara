@@ -1,24 +1,22 @@
-# encoding: UTF-8
-
-require 'spec_helper'
+require "spec_helper"
 
 describe Avalara::Request::Address do
-  let(:params) { Factory.attributes_for(:address) }
-  let(:address) { Factory.build_via_new(:address) }
+  let(:params) { attributes_for(:address) }
+  let(:address) { FactoryGirl.build_via_new(:address, params) }
 
-  context 'sets all attributes' do
+  context "sets all attributes" do
     subject { address }
 
-    its(:AddressCode) { should == params[:address_code] }
-    its(:Line1) { should == params[:line_1] }
-    its(:Line2) { should == params[:line_2] }
-    its(:Line3) { should == params[:line_3] }
-    its(:City) { should == params[:city] }
-    its(:Region) { should == params[:region] }
-    its(:Country) { should == params[:country] }
-    its(:PostalCode) { should == params[:postal_code] }
-    its(:Latitude) { should == params[:latitude] }
-    its(:Longitude) { should == params[:longitude] }
-    its(:TaxRegionId) { should == params[:tax_region_id] }
+    it { expect(subject.AddressCode).to eq params[:address_code] }
+    it { expect(subject.Line1).to eq params[:line_1] }
+    it { expect(subject.Line2).to eq params[:line_2] }
+    it { expect(subject.Line3).to eq params[:line_3] }
+    it { expect(subject.City).to eq params[:city] }
+    it { expect(subject.Region).to eq params[:region] }
+    it { expect(subject.Country).to eq params[:country] }
+    it { expect(subject.PostalCode).to eq params[:postal_code] }
+    it { expect(subject.Latitude).to eq params[:latitude] }
+    it { expect(subject.Longitude).to eq params[:longitude] }
+    it { expect(subject.TaxRegionId).to eq params[:tax_region_id] }
   end
 end
