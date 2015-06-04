@@ -73,7 +73,7 @@ module Avalara
     ].join("/")
 
     response = API.get(uri,
-      query: address_hash.to_h,
+      query: Request::Address.new(address_hash),
       basic_auth: authentication
     )
 
